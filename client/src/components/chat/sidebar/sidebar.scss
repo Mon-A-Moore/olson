@@ -1,0 +1,110 @@
+.sidebar {
+	width: 100%;
+  background-color: #212121;
+	position: relative;
+	overflow: hidden;
+  &__header {
+		position: relative;
+    margin: 0 7px;
+    height: 70px;
+		margin-bottom: 5px;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .burger {
+      
+      &__icon {
+        z-index: 5;
+        position: relative;
+        width: 18px;
+        height: 12px;
+
+        &::before,
+        &::after,
+        span {
+          left: 0;
+          position: absolute;
+          height: 10%;
+          width: 100%;
+          transition: all 0.3s ease 0s;
+          background-color: #aaaaaa;
+        }
+        &::before,
+        &::after {
+          content: '';
+        }
+        &::before {
+          top: 0;
+        }
+        &::after {
+          bottom: 0;
+        }
+        span {
+          top: 50%;
+          transform: scale(1) translate(0px, -50%);
+          color: #aaaaaa;
+        }
+      }
+    }
+
+    .input-search {
+      flex: 1;
+      height: 40px;
+      position: relative;
+
+      &:focus-within {
+        svg {
+          stroke: #00d9ff;
+        }
+      }
+
+      svg {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+      }
+
+      input {
+        width: 80%;
+        height: 100%;
+        border-radius: 22px;
+        background-color: rgb(24, 24, 24);
+        border: 2px solid #2f2f2f;
+        color: #aaaaaa;
+        font-size: 18px;
+        line-height: 30px;
+        padding-left: 15%;
+
+        &:focus {
+          border-color: #00d9ff;
+        }
+        &::placeholder {
+          color: #aaaaaa;
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+    }
+  } 
+}
+.buttonBurger{
+	cursor: pointer;
+	margin: 0 7px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #212121;
+	border: 1px solid #212121;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&:hover {
+		background-color: #2e2e2e;
+	}
+	&:active {
+		transition-duration: 0.1s;
+		transition-timing-function: cubic-bezier(0.75, -0.3, 0.275, 1.49);
+		background-color: #414141;
+	}
+}

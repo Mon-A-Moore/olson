@@ -1,0 +1,55 @@
+
+.main {
+  background-color: #0f0f0f;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+
+  &__header {
+    background-color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Icon {
+      z-index: 5;
+      position: relative;
+      width: 3px;
+      height: 30px;
+
+      &::before,
+      &::after,
+      span {
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease 0s;
+        background-color: #aaaaaa;
+      }
+      &::before,
+      &::after {
+        content: '';
+        border-radius: 50%;
+      }
+      &::before {
+        top: 5px;
+      }
+      &::after {
+        bottom: 5px;
+      }
+      span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+        color: #aaaaaa;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  
+}
+.inactive{
+	display: none;
+}
