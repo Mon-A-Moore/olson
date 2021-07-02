@@ -3,10 +3,16 @@ import io from 'socket.io-client';
 import classNames from 'classnames';
 import './contentcontaier.scss';
 
+
+
 const Contentcontaier = ({ list, setcount }) => {
   const [yourID, setYourID] = useState();
   const [messages, setMessages] = useState([list.messages]);
   const [message, setMessage] = useState('');
+	const [feedback, setFeedback] = useState('');
+	const [time, setTime] = useState();
+
+
 
   const socketRef = useRef();
   const messagesRef = useRef(null);
@@ -35,6 +41,7 @@ const Contentcontaier = ({ list, setcount }) => {
   useEffect(() => {
     socketRef.current.on('message', (message) => {
       console.log('Пришло сообщение!');
+		
       receivedMessage(message);
     });
   }, []);
@@ -43,9 +50,16 @@ const Contentcontaier = ({ list, setcount }) => {
     setMessages((oldMsgs) => [...oldMsgs, message]);
   };
 
+	const KeyPress =(e)=>{
+		if(e){
+			socketRef.current.emit('feedback', e.target.value);
+      clearInterval(time)
+      setTime(setTimeout(timeoutFunction, 2000))
+		}
+	}
   const handKeyPress = (e) => {
     if (e.key === 'Enter') {
-      sendMessage(e);
+     sendMessage(e);
     }
   };
   const sendMessage = (e) => {
@@ -69,6 +83,26 @@ const Contentcontaier = ({ list, setcount }) => {
     messagesRef.current.scrollTo(0, 99999);
   }, [messages]);
 
+
+	const timeoutFunction=()=>{
+		socketRef.current.emit('feedback', false);
+	};
+	
+
+	useEffect(() => {
+		socketRef.current.on('feedback', (data) => {
+			if(data) {
+				setFeedback('Пользователь набирает сообщение...');
+		}
+		else {
+				setFeedback('');
+		}
+		});
+	}, [])
+
+
+
+
   return (
     <>
       <div ref={messagesRef} className="main__content-container">
@@ -84,6 +118,7 @@ const Contentcontaier = ({ list, setcount }) => {
                 >
                   <p>{message.body}</p>
                 </div>
+								
               </div>
             );
           })}
@@ -109,9 +144,11 @@ const Contentcontaier = ({ list, setcount }) => {
                   </button>
                 </div>
               </div>
+							<div  className="infeedback">{feedback}</div>
               <div className="input">
                 <form onSubmit={sendMessage}>
                   <input
+										onKeyUp={KeyPress}
                     onKeyDown={handKeyPress}
                     value={message}
                     onChange={handleChange}

@@ -22,6 +22,10 @@ io.on('connection', (socket) => {
       io.emit('count', count);
     });
 
+		socket.on('feedback', (data)=>{
+			socket.broadcast.emit('feedback', data);
+		});
+		
   } else {
 		console.log(`Комната переполнена, пользователь ${socket.id} не смог подключиться.`);
     socket.disconnect();
