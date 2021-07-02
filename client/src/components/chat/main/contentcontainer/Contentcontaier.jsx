@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import classNames from 'classnames';
 import './contentcontaier.scss';
 
-const Contentcontaier = ({ list }) => {
+const Contentcontaier = ({ list, setcount }) => {
   const [yourID, setYourID] = useState();
   const [messages, setMessages] = useState([list.messages]);
   const [message, setMessage] = useState('');
@@ -11,16 +11,26 @@ const Contentcontaier = ({ list }) => {
   const socketRef = useRef();
   const messagesRef = useRef(null);
 
+
   useEffect(() => {
     socketRef.current = io.connect('http://localhost:8000');
     socketRef.current.on('your id', (id) => {
       console.log(`Пользователь ${id} вошёл в чат ${list.name}`);
       setYourID(id);
     });
+		
     socketRef.current.on('disconnect', (socket) => {
       console.log(`Пользователь ${socket.id} вышел из чата ${list.name}`);
     });
   }, []);
+
+
+	useEffect(() => {
+		socketRef.current.emit('send count');
+		socketRef.current.on('count', (count) => {
+			setcount(count);
+    });
+	}, []);
 
   useEffect(() => {
     socketRef.current.on('message', (message) => {
@@ -86,7 +96,7 @@ const Contentcontaier = ({ list }) => {
             <div className="chat-input__container-input-wrapper">
               <div className="smile-file-container">
                 <div className="smile-file">
-                  <button className="buttonBurger">
+                  <button className="button-burger">
                     <svg
                       fill="#AAAAAA"
                       xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +123,7 @@ const Contentcontaier = ({ list }) => {
               </div>
               <div className="smile-file-container">
                 <div className="smile-file">
-                  <button className="buttonBurger">
+                  <button className="button-burger">
                     <svg
                       fill="#AAAAAA"
                       xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +140,7 @@ const Contentcontaier = ({ list }) => {
           </div>
           <div className="audio-download-container">
             <div className="audio">
-              <button className="buttonBurger">
+              <button className="button-burger">
                 <svg
                   fill="#AAAAAA"
                   xmlns="http://www.w3.org/2000/svg"

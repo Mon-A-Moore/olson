@@ -4,6 +4,8 @@ import Sidebar from '../chat/sidebar';
 import Main from '../chat/main';
 import './app.scss';
 
+import icon from '../../assets/img/test.jpg';
+
 const array = {
   user: [
     {
@@ -18,10 +20,10 @@ const array = {
   list: [
     {
       id: 1,
-      name: 'bochki',
-      icons: '../../assets/img/test.jpg',
-      userscount: 2,
-      usersid: [12, 34],
+      name: 'Olson Chat',
+      icons: icon,
+      userscount: null,
+      usersid: [],
       messages: [],
       listactive: false,
     },
@@ -32,7 +34,6 @@ const App = () => {
   const [arr, setarray] = React.useState(array);
 
   const [selectbutton, setselectbutton] = React.useState([{}, false]);
-
   /* console.log(selectbutton); */
   return (
     <>
@@ -41,7 +42,7 @@ const App = () => {
         {arr.list.map(
           (item) =>
             selectbutton[0] === item.id && (
-              <Main list={item} selected={selectbutton} />
+              <Main list={item} selected={selectbutton}  />
             )
         )}
       </div>

@@ -12,18 +12,25 @@ let count = 0;
 io.on('connection', (socket) => {
   if (count < 2) {
     count++;
-    console.log('Пользователь подключился'); // world
+    console.log(`Пользователь ${socket.id} подключился`); 
     socket.emit('your id', socket.id);
     socket.on('send message', (body) => {
       io.emit('message', body);
     });
+
+		socket.on('send count', () => {
+      io.emit('count', count);
+    });
+
   } else {
+		console.log(`Комната переполнена, пользователь ${socket.id} не смог подключиться.`);
     socket.disconnect();
   }
 
-  socket.on('disconnect', (socket) => {
-    count--; // убираем юзера с нужным из массива подключенных юзеров при отключении
-    console.log('Пользователь отключился');
+  socket.on('disconnect', () => {
+    count--; 
+		io.emit('count', count);
+    console.log(`Один из собеседников отключился`);
   });
 });
 

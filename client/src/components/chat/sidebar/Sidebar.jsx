@@ -8,7 +8,7 @@ const Sidebar = ({ list, selected}) => {
   return (
     <div className="sidebar">
       <div className="sidebar__header header">
-        <button className="burger buttonBurger">
+        <button className="burger button-burger">
           <div className="burger__icon">
             <span></span>
           </div>

@@ -13,7 +13,7 @@ const GroupName = ({icons,name,count}) => {
 						<p>{name}</p>
 					</h1>
 					<h2>
-						<p>{count} geek</p>
+						<p>{count} users</p>
 					</h2>
 				</div>
 			</div>
