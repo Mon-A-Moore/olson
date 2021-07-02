@@ -84,13 +84,16 @@
         justify-content: center;
 
         .smile-file-container {
+          height: 100%;
           .smile-file {
+            width: 25px;
+            height: 25px;
           }
         }
         .input {
           flex: 1;
 
-          .chatInput {
+          .chat__input {
             background-color: #212121;
             border: 1px solid #212121;
             width: 100%;

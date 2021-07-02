@@ -138,7 +138,7 @@ const Contentcontaier = ({ list, setcount }) => {
                     onKeyDown={handKeyPress}
                     value={message}
                     onChange={handleChange}
-                    className="chatInput"
+                    className="chat__input"
                     type="text"
                     placeholder="Сообщение"
                   />
