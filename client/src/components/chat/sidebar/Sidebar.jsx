@@ -3,8 +3,7 @@ import List from './list';
 
 import './sidebar.scss';
 
-const Sidebar = ({ list, selected}) => {
-	
+const Sidebar = ({ list, selected }) => {
   return (
     <div className="sidebar">
       <div className="sidebar__header header">

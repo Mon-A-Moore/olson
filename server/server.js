@@ -12,28 +12,29 @@ let count = 0;
 io.on('connection', (socket) => {
   if (count < 2) {
     count++;
-    console.log(`Пользователь ${socket.id} подключился`); 
+    console.log(`Пользователь ${socket.id} подключился`);
     socket.emit('your id', socket.id);
     socket.on('send message', (body) => {
       io.emit('message', body);
     });
 
-		socket.on('send count', () => {
+    socket.on('send count', () => {
       io.emit('count', count);
     });
 
-		socket.on('feedback', (data)=>{
-			socket.broadcast.emit('feedback', data);
-		});
-		
+    socket.on('feedback', (data) => {
+      socket.broadcast.emit('feedback', data);
+    });
   } else {
-		console.log(`Комната переполнена, пользователь ${socket.id} не смог подключиться.`);
+    console.log(
+      `Комната переполнена, пользователь ${socket.id} не смог подключиться.`
+    );
     socket.disconnect();
   }
 
   socket.on('disconnect', () => {
-    count--; 
-		io.emit('count', count);
+    count--;
+    io.emit('count', count);
     console.log(`Один из собеседников отключился`);
   });
 });

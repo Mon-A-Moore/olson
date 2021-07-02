@@ -47,77 +47,74 @@
   }
 }
 
+.infeedback {
+  margin: 5px 0px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-style: inherit;
+}
 
-  .infeedback {
-		margin: 5px 0px;
-		height: 16px;
-    display: flex;
+.chat-input {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+
+  &__container {
     align-items: center;
     justify-content: center;
-    color: white;
-		font-style:inherit;
-  }
-
-  .chat-input {
-
-    margin-top: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-
-    &__container {
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      margin-left: 5%;
-      width: 61%;
+    margin-left: 5%;
+    width: 61%;
+    height: 100%;
+    &-input {
+      width: 100%;
       height: 100%;
-      &-input {
-        width: 100%;
-        height: 100%;
-        &-wrapper {
-          height: 80%;
-          background-color: #212121;
-          border: 1px solid #212121;
-          border-radius: 12px 12px 0px 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+      &-wrapper {
+        height: 80%;
+        background-color: #212121;
+        border: 1px solid #212121;
+        border-radius: 12px 12px 0px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-          .smile-file-container {
-            .smile-file {
-            }
-          }
-          .input {
-            flex: 1;
-
-            .chatInput {
-              background-color: #212121;
-              border: 1px solid #212121;
-              width: 100%;
-              height: 90%;
-              color: white;
-              font-size: 14px;
-              line-height: 30px;
-              &::placeholder {
-                color: #aaaaaa;
-                font-size: 18px;
-                line-height: 30px;
-              }
-            }
+        .smile-file-container {
+          .smile-file {
           }
         }
-      }
-      .audio-download-container {
-        height: 100%;
-        .audio {
-          .buttonBurger {
-            width: 50px;
-            height: 50px;
+        .input {
+          flex: 1;
+
+          .chatInput {
+            background-color: #212121;
+            border: 1px solid #212121;
+            width: 100%;
+            height: 90%;
+            color: white;
+            font-size: 14px;
+            line-height: 30px;
+            &::placeholder {
+              color: #aaaaaa;
+              font-size: 18px;
+              line-height: 30px;
+            }
           }
         }
       }
     }
+    .audio-download-container {
+      height: 100%;
+      .audio {
+        .buttonBurger {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
   }
-
+}

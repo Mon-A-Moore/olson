@@ -1,24 +1,22 @@
 .sidebar__list {
   background-color: none;
-	position: relative;
+  position: relative;
   ul {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     height: 93vh;
   }
-	&-add{
-		cursor: pointer;
-		border-radius: 50%;
-		bottom: 25px;
-		right: 20px;
-		position: absolute;
-		background-color: #00d9ff;
-		border: 1px solid #00d9ff;
-		box-shadow: 1px 2px 4px #212121;
-		width: 50px;
-		height: 50px;
-
-
-	}
+  &-add {
+    cursor: pointer;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 20px;
+    position: absolute;
+    background-color: #00d9ff;
+    border: 1px solid #00d9ff;
+    box-shadow: 1px 2px 4px #212121;
+    width: 50px;
+    height: 50px;
+  }
 }

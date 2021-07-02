@@ -42,7 +42,7 @@ const App = () => {
         {arr.list.map(
           (item) =>
             selectbutton[0] === item.id && (
-              <Main list={item} selected={selectbutton}  />
+              <Main list={item} selected={selectbutton} />
             )
         )}
       </div>

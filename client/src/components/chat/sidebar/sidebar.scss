@@ -1,19 +1,18 @@
 .sidebar {
-	width: 100%;
+  width: 100%;
   background-color: #212121;
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
   &__header {
-		position: relative;
+    position: relative;
     margin: 0 7px;
     height: 70px;
-		margin-bottom: 5px;
+    margin-bottom: 5px;
     background-color: none;
     display: flex;
     align-items: center;
     justify-content: center;
     .burger {
-      
       &__icon {
         z-index: 5;
         position: relative;
@@ -86,25 +85,25 @@
         }
       }
     }
-  } 
+  }
 }
-.button-burger{
-	cursor: pointer;
-	margin: 0 7px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: #212121;
-	border: 1px solid #212121;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	&:hover {
-		background-color: #2e2e2e;
-	}
-	&:active {
-		transition-duration: 0.1s;
-		transition-timing-function: cubic-bezier(0.75, -0.3, 0.275, 1.49);
-		background-color: #414141;
-	}
+.button-burger {
+  cursor: pointer;
+  margin: 0 7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #212121;
+  border: 1px solid #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #2e2e2e;
+  }
+  &:active {
+    transition-duration: 0.1s;
+    transition-timing-function: cubic-bezier(0.75, -0.3, 0.275, 1.49);
+    background-color: #414141;
+  }
 }

@@ -5,14 +5,13 @@ import classNames from 'classnames';
 import './main.scss';
 import '../sidebar/sidebar.scss';
 
-const Main = ({list,selected}) => {
-	
-	const [count, setcount] = React.useState(null);
-console.log(count);
+const Main = ({ list, selected }) => {
+  const [count, setcount] = React.useState(null);
+  console.log(count);
   return (
-    <div className={classNames('main',  selected[1] === false && 'inactive')}>
+    <div className={classNames('main', selected[1] === false && 'inactive')}>
       <div className="main__header header">
-        <GroupName  name={list.name} icons={list.icons} count={count} />
+        <GroupName name={list.name} icons={list.icons} count={count} />
         <button className="button-burger">
           <svg
             fill="#AAAAAA"
@@ -30,8 +29,7 @@ console.log(count);
           </div>
         </button>
       </div>
-      <Contentcontaier list={list} count={count}  setcount={setcount}  />
-      
+      <Contentcontaier list={list} count={count} setcount={setcount} />
     </div>
   );
 };
