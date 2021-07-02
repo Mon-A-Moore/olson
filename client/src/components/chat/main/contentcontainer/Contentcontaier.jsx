@@ -111,8 +111,7 @@ const Contentcontaier = ({ list, setcount }) => {
           })}
         </div>
       </div>
-      <div className="main-input-container">
-        <div className="infeedback">{feedback}</div>
+			<div className="infeedback">{feedback}</div>
         <div className="chat-input">
           <div className="chat-input__container">
             <div className="chat-input__container-input">
@@ -179,7 +178,6 @@ const Contentcontaier = ({ list, setcount }) => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
